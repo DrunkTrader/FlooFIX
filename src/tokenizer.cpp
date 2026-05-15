@@ -2,8 +2,6 @@
 #include <sstream>
 
 namespace fix {
-    constexpr char soh_del = '\x01';
-
     std::string preprocess_delimeter(const std::string &input){
         std::string good_str = input;
         
@@ -34,4 +32,21 @@ namespace fix {
         return tokens;
     }
 
+    FixField splitField(const std::string &token){
+        FixField field{-1, ""};
+        auto pos = token.find('=');
+        if (pos == std::string::npos) {
+            return field;
+        }
+
+        try {
+            field.tag = std::stoi(token.substr(0, pos));
+            field.value = token.substr(pos + 1);
+        } catch(const std::exception& e) {
+            // Invalid conversion (e.g., tag is not a number)
+            field.tag = -1;
+            field.value = "";
+        }
+        return field;
+    }
 }

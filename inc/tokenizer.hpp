@@ -9,6 +9,7 @@ namespace fix {
 
 	std::string preprocess_delimeter(const std::string &input);
 	std::vector<std::string> tokenize(const std::string &input);
+	FixField splitField(const std::string &token);
 }
 
 // this stores the preprocess deliemter to normalize the use of '|' and soh delimeter = '\x01'

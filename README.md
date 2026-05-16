@@ -9,9 +9,6 @@ This is a Fix Parser
 3. Create a `Tokenizer` module that splits the raw message using the SOH delimiter (`\x01`).
 
 4. Add a preprocessing step to replace `|` with `\x01` so you can test easily with readable input.
-
-## To-Do's
-
 5. Implement a `splitField()` function that divides each token into `tag` and `value` using `=`.
 
 6. Convert tag strings to integers using `std::stoi`, and handle invalid conversions safely.
@@ -19,6 +16,11 @@ This is a Fix Parser
 7. Insert parsed fields into the `FixMessage` map; decide how to handle duplicate tags (overwrite or reject).
 
 8. Create a `Parser` class with a `parse(std::string raw)` method that orchestrates tokenization and field extraction.
+
+
+## To-Do's
+
+
 
 9. Implement header validation to check mandatory tags like `8, 9, 35, 49, 56, 34, 52`.
 

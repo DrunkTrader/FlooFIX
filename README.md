@@ -35,13 +35,13 @@ The sample message is defined in `main.cpp` as `raw_msg`. Validation output is p
 
 8. Create a `Parser` class with a `parse(std::string raw)` method that orchestrates tokenization and field extraction.
 
-## To-Do's
-
 9. Implement header validation to check mandatory tags like `8, 9, 35, 49, 56, 34, 52`.
 
 10. Implement body validation using message-type rules based on tag `35` (e.g., `D`, `A`, `8`).
 
 11. Write a function to compute checksum (sum of bytes % 256) and validate it against tag `10`.
+
+## To-Do's
 
 12. Implement body length validation by verifying tag `9` matches the actual message body length.
 

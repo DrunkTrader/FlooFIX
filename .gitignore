@@ -1,3 +1,5 @@
 **/feature_requirements.txt
 **/build
 **/.vscodecompile_flags.txt
+*.exe
+dist/

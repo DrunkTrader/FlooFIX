@@ -12,5 +12,5 @@ namespace fix {
 		std::string value;
 	};
 
-	std::unordered_map<const int, std::string> fix_field_storage(const std::string &raw_str);
+	FixMessage fix_field_storage(const std::string &raw_str);
 }

@@ -1,7 +1,25 @@
 # FlooFIX
+
 This is a Fix Parser
 
-## Done 
+## Build and Run
+
+Use a C++17 compiler. On Windows with MinGW:
+
+```powershell
+g++ -std=c++17 -Iinc main.cpp src\parser.cpp src\storage.cpp src\tokenizer.cpp src\validator.cpp -o FlooFIX.exe
+```
+
+Run:
+
+```powershell
+./FlooFIX.exe
+```
+
+The sample message is defined in `main.cpp` as `raw_msg`. Validation output is printed after the parsed tags.
+
+## Done
+
 1. Define a `FixField` structure with `int tag` and `std::string value` to represent a single FIX field.
 
 2. Define a `FixMessage` container using `std::map<int, std::string>` (or `std::unordered_map` if you do not need ordering) to store parsed fields.
@@ -17,16 +35,13 @@ This is a Fix Parser
 
 8. Create a `Parser` class with a `parse(std::string raw)` method that orchestrates tokenization and field extraction.
 
-
-## To-Do's
-
-
-
 9. Implement header validation to check mandatory tags like `8, 9, 35, 49, 56, 34, 52`.
 
 10. Implement body validation using message-type rules based on tag `35` (e.g., `D`, `A`, `8`).
 
 11. Write a function to compute checksum (sum of bytes % 256) and validate it against tag `10`.
+
+## To-Do's
 
 12. Implement body length validation by verifying tag `9` matches the actual message body length.
 
